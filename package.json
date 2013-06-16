@@ -1,0 +1,38 @@
+{
+  "name": "social-aggregator",
+  "author": {
+    "name": "John Hu",
+    "email": "rec@miidio.com"
+  },
+  "description": "An information aggregator app for Facebook",
+  "version": "0.1.0",
+  "keywords": [
+    "rss",
+    "feed",
+    "facebook",
+    "flickr",
+    "picasa",
+    "googlenews",
+    "youtube"
+  ],
+  "homepage": "https://github.com/miidio/social-aggregator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miidio/social-aggregator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miidio/social-aggregator/issues"
+  },
+  "main": "./Main/main.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "dateformat": ">= 1.0.6-1.2.3",
+    "execSync": ">= 0.0.3",
+    "fb": ">= 0.1.0",
+    "feedparser": ">= 0.13.4",
+    "xmlhttprequest": ">= 1.5.0",
+    "request": "2.21.x"
+  }
+}

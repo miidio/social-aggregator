@@ -6,9 +6,14 @@ lib-cov
 *.out
 *.pid
 *.gz
+.DS_Store
 
+fb-cache
 pids
 logs
 results
+node_modules
 
 npm-debug.log
+Main/config.js
+image-cache/CutyCapt
