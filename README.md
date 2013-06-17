@@ -43,3 +43,6 @@ For each item:
 - redirectURL: When creating facebook app, you need to set the url of facebook auth url which is also used by client mode.
 - imageCache: If you had configured image cache tools, like: CutyCapt for linux or webkit2png for mac, you can set this variable to true to create image cache before share link to social service.
 - providers: an array of information source. 
+
+##License##
+All programs and document of social-aggregator are licensed on GPLv3, http://www.gnu.org/licenses/gpl.html. If you have any questions, please email to rec@miidio.com.
