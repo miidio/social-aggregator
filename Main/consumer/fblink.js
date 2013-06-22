@@ -1,3 +1,5 @@
+'use strict';
+
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 var FB = require('fb');
 var fs = require('fs');

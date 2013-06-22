@@ -1,3 +1,5 @@
+'use strict';
+
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 var dateFormat = require('dateformat');
 var logger = console;
@@ -60,9 +62,12 @@ function FlickrImageProvider() {
 
       if (mThis.dataCallback) {
         nProcessedCount += 1;
+        var strURL = 'http://www.flickr.com/photos/' + oCurrentPhoto.owner
+          + '/' + oCurrentPhoto.id;
         mThis.dataCallback({
           'source' : szLargest.source,
-          photo : oCurrentPhoto
+          photo : oCurrentPhoto, 
+          url: strURL
         });
       }
     }

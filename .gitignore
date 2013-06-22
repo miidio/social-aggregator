@@ -13,6 +13,7 @@ pids
 logs
 results
 node_modules
+image
 
 npm-debug.log
 Main/config.js

@@ -1,3 +1,5 @@
+'use strict';
+
 var dateFormat = require('dateformat');
 var logger = console;
 var FeedParser = require('feedparser');

@@ -1,4 +1,6 @@
-var fanpage = require('./fanpagehandler.js');
+'use strict';
+
+var fanpage = require('./consumer/fanpagehandler.js');
 var cfg = require('./config.js');
 var logger = console;
 // if debug is true, we don't post anything to facebook
@@ -28,11 +30,11 @@ function startSources() {
   }
 }
 
-process.on('uncaughtException', function(err) {
+/*process.on('uncaughtException', function(err) {
   console.log(err);
   logger.log('debug', err);
 });
-
+*/
 initLogger();
 initSources();
 startSources();

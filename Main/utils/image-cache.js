@@ -1,3 +1,5 @@
+'use strict';
+
 var dateFormat = require('dateformat');
 var logger = console;
 var execSync = require('execSync');
@@ -6,17 +8,20 @@ var fs = require('fs');
 
 var unprocessed = new Array();
 var shasum = crypto.createHash('sha1');
+var bHasMore = false;
 
 function callCreate(item, path) {
   try {
     logger.log('info', 'start to sync cache: ' + item.url);
-    var out = execSync.stdout('image-cache/create.sh \'' 
+    /**
+     * we assume this app is running at root folder of git-aggregator.
+     */
+    var out = execSync.stdout('./image-cache/create.sh \'' 
         + item.url + '\' '
         + item.type + ' \''
         + item.host + '\' \'' 
         + path + '\'');
     logger.log('info', 'output of image cache: ' + out);
-    bHasMore = true;
   } catch (ex) {
     logger.log('debug', 'error on image-cache: ' + ex);
   }
@@ -39,9 +44,8 @@ function createFolders(dirs) {
 }
 
 function process() {
-  var bHasMore = false;
+  var runOk = false;
   for ( var i in unprocessed) {
-    bHasMore = true;
     var item = unprocessed[i];
     var strHash = crypto.createHash('md5').update(item.url).digest('hex');
     var strFolder = 'image/' + 
@@ -56,11 +60,11 @@ function process() {
       logger.log('info', 'url [' + item.url + '] already be cached.');
     }
     delete unprocessed[i];
+    runOk = true;
     break;
   }
 
-
-  if (bHasMore) {
+  if (runOk) {
     setTimeout(process, 5000);
   }
 }

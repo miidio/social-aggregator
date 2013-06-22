@@ -1,10 +1,9 @@
-//
+'use strict';
 
 var dateFormat = require('dateformat');
-//var logger = require('winston');
-var logger = console;
 var FeedParser = require('feedparser');
 var request = require('request');
+var logger = console;
 
 function YouTubeProvider() {
 
