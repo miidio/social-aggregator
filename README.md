@@ -20,11 +20,17 @@ Use npm to install all required modules:
 
 
 ##Configuration##
-Before using this app, you need to create a config.js file under Main/ directory, like:
+*. Before using this app, you need to create a config.js file under Main/ directory, like:
 
 	module.exports.Config = [
 		{... fanpage setting }
 	]
+
+*. Prepare your create.sh for creation of image cache of a web url. You may find two script files under image-cache folder. One for mac(create-mac.sh), and another for linux(create-linux.sh). Just link the file as create.sh:
+
+  `ln -s create-mac.sh create.sh`
+
+for more info please find [image tools](https://github.com/miidio/social-aggregator/wiki/Image-Cache-tools) in wifi page.
 
 ##Fan Page Setting##
 A fan page setting is a setting object of Facebook Fan Page. Social-aggregator uses keyword to query information and share them to Facebook Fan Page. A fan page setting contains the following information:
@@ -40,7 +46,7 @@ A fan page setting is a setting object of Facebook Fan Page. Social-aggregator u
       "imageCache" : {create image cache or not},
       "providers" : [
           {... data source provider}]
-    }
+  }
 
 For each item:
 
