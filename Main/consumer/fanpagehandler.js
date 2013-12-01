@@ -79,7 +79,8 @@ function FanPageHandler(options) {
 
   this.start = function() {
     providerHelper.hookReady((function() {
-      logger.log('debug', 'start page with: ' + this._debug);
+      logger.log('debug', 'start page ' + options.name + ' with: ' + 
+                          this._debug);
       initProviders();
       // we will start provider while facebook ready.
       initFacebook();

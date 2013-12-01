@@ -4,7 +4,7 @@ var fanpage = require('./consumer/fanpagehandler.js');
 var cfg = require('./config.js');
 var logger = console;
 // if debug is true, we don't post anything to facebook
-var _DEBUG = true;
+var _DEBUG = false;
 // system variables
 var sources = new Array();
 
@@ -23,7 +23,7 @@ function startSources() {
   for ( var i = 0; i < sources.length; i++) {
     sources[i]._debug = _DEBUG;
     try {
-    sources[i].start();
+      sources[i].start();
     } catch (ex) {
       logger.log('debug', ex);
     }

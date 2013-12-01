@@ -50,6 +50,7 @@ function GoogleNewsProvider() {
     logger.log('info', 'start google news with keyword: ' + mThis.options.keyword);
     // use feedparser to load rss.
     var strURL = getSearchURL(mThis.options.keyword, mThis.options.size);
+    logger.log('info', 'issue request to: ' + strURL);
     request(strURL).pipe(new FeedParser()).on('readable', processArticle).on('error', processEnd);
   }
 

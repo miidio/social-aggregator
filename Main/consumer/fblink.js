@@ -166,6 +166,7 @@ function FacebookLink(options) {
       link : url
     };
     logger.log('info', 'FB API Post: ' + url);
+    // TODO: add a local cache mechanism to check if an url is already shared before.
     // do post must use page access token
     FB.api('/' + fanspageID + '/feed', 'post', data, function(response) {
       if (!response || response.error) {
@@ -243,6 +244,8 @@ function FacebookLink(options) {
 
   this.prepare = function() {
     fanspageID = mThis.options.fanpageID;
+    // TODO: remove this kind of api. just rethink a way to generate long-live
+    // access token.
     TOKEN_FILE_NAME = mThis.options.fanpageID + '_long_at.txt';
     SHORT_USER_AT_FILE = mThis.options.owner + '_short_at.txt';
     OWNER_AT_FILE_NAME = mThis.options.owner + '_long_at.txt';

@@ -7,6 +7,7 @@ var fs = require('fs');
   var map = {};
   var onready = null;
   var ready = false;
+  var readyCallbacks = new Array();
 
   function endsWith(str, suffix) {
      return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -24,10 +25,10 @@ var fs = require('fs');
       }
     }
     ready = true;
-    if (onready) {
-      onready();
-      onready = false;
+    for (var i = 0; i < readyCallbacks.length; i++) {
+      readyCallbacks[i]();
     }
+    readyCallbacks = new Array();
   });
 
   exports.hookReady = function(cb) {
@@ -35,7 +36,7 @@ var fs = require('fs');
       cb();
       return;
     }
-    onready = cb;
+    readyCallbacks.push(cb);
   };
 
   exports.create = function(type) {
